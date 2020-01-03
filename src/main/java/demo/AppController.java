@@ -11,7 +11,7 @@ public class AppController {
     Logger LOGGER = LoggerFactory.getLogger(AppController.class);
 
     @RequestMapping("/")
-    public String index() {
+    public String greet() {
         LOGGER.info("Loading application index...");
         return "Hello World!";
     }
