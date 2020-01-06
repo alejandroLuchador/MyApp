@@ -10,6 +10,6 @@ public class GreetingTest {
 
     @Test
     public void appSaysHello() {
-        assertThat(appCtrlr.greet(), containsString("Hello"));
+        assertThat(appCtrlr.greet(), containsString("Hello World"));
     }
 }

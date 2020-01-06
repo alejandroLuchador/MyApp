@@ -29,11 +29,13 @@
             <artifactId>json-path</artifactId>
             <scope>test</scope>
         </dependency>
+<!-- alternative method of displaying info. However, it does not match the format requested by the assessment
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+-->
     </dependencies>
 
     <properties>
