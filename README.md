@@ -41,18 +41,50 @@ Please note that this will require Docker Desktop to be installed.
 First step is to package the application via the following command
 
 ```bash
-mvnw package
+mvn package
 ```
 
 Once completed the command will package the application into MyApp/target/MyApp-1.0.jar
 
-The application can now be deployed to a docker container and run.
+The application can now be deployed to a docker container image using the following command.
 
 
 ```bash
 docker build -t myapp/myapp-spring-boot-docker .
+```
 
+Once the command is completed you should be able to see the newly created container image by running the following command.
+```bash
+docker image ls
+```
+
+The output should look similar to 
+```
+REPOSITORY                          TAG                 IMAGE ID            CREATED              SIZE
+myapp/myapp-spring-boot-docker      latest              65fe4fb3e3a4        About a minute ago   122MB
+```
+Finally we can run the container using the following command, which exposes container port 8083 on localhost port 80804.
+
+```bash
 docker run -p 8084:8083 -t "myapp/myapp-spring-boot-docker"
 ```
 
-The application should then be accessible via your favourite browser via the following URL http://localhost:8084/info
+The application should then be accessible via your favourite browser via the following URL http://localhost:8084/info and you should see json response similar to 
+
+```json
+{
+  "environment" : {
+    "log_level" : "info",
+    "service_port" : "8083"
+  },
+  "service_name" : "MyApp",
+  "git_commit_sha" : "08de467f7a4f1e0a4936c4a13c4c1e568792e33a",
+  "version" : "1.0"
+}
+```
+
+Access to the /info endpoint will be logged to the console using `org.slf4j.Logger` and should look similar to the following
+
+```
+2020-01-07 01:26:38.342  INFO 1 --- [nio-8083-exec-4] demo.AppController                       : Loading "info" endpoint...
+```
