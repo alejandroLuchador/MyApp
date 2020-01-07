@@ -88,3 +88,11 @@ Access to the /info endpoint will be logged to the console using `org.slf4j.Logg
 ```
 2020-01-07 01:26:38.342  INFO 1 --- [nio-8083-exec-4] demo.AppController                       : Loading "info" endpoint...
 ```
+
+### Possible Improvements
+
+To further demostrate build automation the following items could be added
+
+* At present setup instructions specify what pre-requites user needs to install to run the project. This could be automated by using Maven Wrapper, which is an easy way to ensure a user of of this project's Maven build has everything necessary to run the Maven build.
+
+* The entire process could be added to CI/CD pipeline, which would unit test the application by running `mvn test` (you can run this locally, there is a very basic unit test added), package it, deploy the container image to a registry, deploy to a container orchestrator e.g. GKE and run further tests (e.g. API tests that /info endpoint returns correct info), load test to ensure the /info endpoint can gracefully serve all the requests.
