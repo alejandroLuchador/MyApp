@@ -15,7 +15,7 @@ More about that later.
 
 There are two main ways to run the application:
 
-* By downloading the latest container image from Docker Hub. The image is published to docker hub by github actions CI pipeline configured for this project. The following command will download the container image and run it by exposing the application on port 8084 (note: having local instace of Docker Desktop is a pre-requisite).
+* By downloading the latest container image from [Docker Hub](https://hub.docker.com/r/alcos/my-app). The image is published to docker hub by github actions CI pipeline configured for this project. The following command will download the container image and run it by exposing the application on port 8084 (note: having local instace of Docker Desktop is a pre-requisite).
 
 ```bash
 docker run -p 8084:8083 "alcos/my-app:latest"
