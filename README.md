@@ -7,36 +7,44 @@ The application exposes two endpoints:
 * root context i.e. http://localhost:8083
 * /info endpoint i.e. http://localhost:8083/info
 
-More about later.
-
-## Pre-requisites
-
-Running the project locally requires:
-
-* Apache Maven 3.6.3
-* Oracle JDK: 1.8
+More about that later.
 
 
-## How to run the project:
 
-There are number of ways for running the project. Pre-requisite step for all of them is:
+## How to run the application:
+
+There are two main ways to run the application:
+
+* By downloading the latest container image from Docker Hub. The image is published to docker hub by github actions CI pipeline configured for this project. The following command will download the container image and run it by exposing the application on port 8084 (note: having local instace of Docker Desktop is a pre-requisite).
+
+```bash
+docker run -p 8084:8083 "alcos/my-app:latest"
+```
+
+You should then be able to acces the application by following [these](#accessing-the-containerised-application) steps
+
+* By cloning repository and [running locally](#running-locally) in which case pre-requisites are Apache Maven 3.6.3 and Oracle JDK: 1.8
+
+
+
+### Running locally:
+
+First you will need to clone this github repo
 
 ```bash
 git clone https://github.com/alejandroLuchador/MyApp.git
 cd MyApp
 ```
 
-### Running locally:
-
-The command below will build the code and run the application. The application should then be accessible via your favourite browser via the following URL http://localhost:8083/info
+The simplest way to run the application from the code repo is by running the followig command.
 
 ```bash
 mvn spring-boot:run
 ```
 
-### Running containerised application
+The command below will build the code and run the application. The application should then be accessible via your favourite browser via the following URL http://localhost:8083/info
 
-Please note that this will require Docker Desktop to be installed.
+You can further package the application into a docker container.
 
 First step is to package the application via the following command
 
@@ -69,7 +77,9 @@ Finally we can run the container using the following command, which exposes cont
 docker run -p 8084:8083 -t "myapp/myapp-spring-boot-docker"
 ```
 
-The application should then be accessible via your favourite browser via the following URL http://localhost:8084/info and you should see json response similar to 
+### Accessing the containerised application
+
+If you followed the instructions and used port 8084, the application should then be accessible via your favourite browser via the following URL http://localhost:8084/info and you should see json response similar to 
 
 ```json
 {
