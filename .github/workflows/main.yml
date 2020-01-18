@@ -35,8 +35,8 @@ jobs:
         
       - name: Tag Container Image
         run: |
-          docker tag back ${{ secrets.DOCKER_USER }}/my-app:${{ github.sha }}
-          docker tag back ${{ secrets.DOCKER_USER }}/my-app:latest
+          docker tag my-app ${{ secrets.DOCKER_USER }}/my-app:${{ github.sha }}
+          docker tag my-app ${{ secrets.DOCKER_USER }}/my-app:latest
           
       - name: Push Container Image
         run: |
