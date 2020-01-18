@@ -18,7 +18,7 @@ jobs:
         with:
           java-version: 1.8
       
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v1
         
       - name: Run Unit Tests
