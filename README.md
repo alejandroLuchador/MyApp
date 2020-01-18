@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/alejandroLuchador/MyApp/workflows/CI/badge.svg)](https://github.com/alejandroLuchador/MyApp/actions)
+
 # MyApp
 
 This repository contains a simple Spring Boot app writen in Java. The reason I chose Java was simply because I am most familiar with that language
