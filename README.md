@@ -12,7 +12,6 @@ The application exposes two endpoints:
 More about that later.
 
 
-
 ## How to run the application:
 
 There are two main ways to run the application:
